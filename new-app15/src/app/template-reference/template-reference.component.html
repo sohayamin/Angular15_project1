@@ -1,0 +1,49 @@
+<!-- <input type="text" #nameBox placeholder="Enter Your Name" name="myName">
+<input type="button" (click)="getName(nameBox.value)" value="Click">-->
+
+<!-- <input type="text" (keyup)="getName(nameBox.value)"  #nameBox  placeholder="Enter Your Name" name="myName">-->
+
+<!-- <input type="text" #nameBox placeholder="Enter Your Name" name="myName"> -->
+<!-- <input type="button" (click)="getName(nameBox.placeholder)" value="Click"> -->
+<!-- <input type="button" (click)="getName(nameBox.name)" value="Click"> -->
+<h4>{{displayName}}</h4>
+
+<!-- <h2 #heading>Learning never ends</h2>
+<button (click)="getHeading(heading.innerHTML)">Click</button> -->
+
+<!-- <input type="text" #fname placeholder="Enter Your First Name" name="fname"><br><br>
+<input type="text" #lname placeholder="Enter Your last Name" name="lname"><br><br>
+<button (click)="getFullName(fname.value, lname.value)">Click</button> -->
+
+<!-- <h4>{{variable}}</h4>
+<button (click)="getCounter('add')">Add</button><br><br>
+<button (click)="getCounter('subtract')">Subtract</button> -->
+
+<!-- <h3 *ngIf="display; else elseblock">
+    Learning angular
+</h3>
+<ng-template #elseblock>
+    <h4>Soha</h4>
+</ng-template> -->
+
+<!-- second way -->
+
+<h3 *ngIf="display; then ifblock else elseblock">
+    Learning angular
+</h3>
+<ng-template #ifblock>
+    <h4>Soha</h4>
+</ng-template>
+<ng-template #elseblock>
+    <h4>Yamin</h4>
+</ng-template>
+
+<div [ngSwitch]="pizza">
+    <div *ngSwitchCase="'Fajita'">You have selected fajita</div>
+    <div *ngSwitchCase="'Fajita'">with extra sauce</div>
+    <div *ngSwitchCase="'Tikka'">You have selected fajita</div>
+    <div *ngSwitchCase="'Supreme'">You have selected fajita</div>
+    <div *ngSwitchCase="'Creamy'">You have selected fajita</div>
+    <div *ngSwitchDefault>You have selected default</div>
+    <div *ngSwitchDefault>Kal aana</div>
+</div>

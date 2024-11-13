@@ -1,0 +1,55 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" >
+                <div>
+                    <h6>Template driven form</h6>
+                </div>
+                <form #newForm="ngForm" (ngSubmit)="save(newForm)">
+                    {{ newForm.value | json }}
+                    <div class="form-group mb-2">
+                        <label for="name">Enter Name</label>
+                        <input type="text" #name="ngModel" name="name" [(ngModel)]="formObj.name" required minlength="3" placeholder="enter name" class="form-control">
+                    </div>
+                    <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+                        <div *ngIf="name.errors && name.errors['required']">
+                            Name is required.
+                        </div>
+                        <div *ngIf="name.errors && name.errors['minlength']">
+                            Minimun length is 3 required.
+                        </div>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="age">Enter Age</label>
+                        <input type="number" #age="ngModel" name="age"[(ngModel)]="formObj.age" required min="10" max="40" placeholder="enter age" class="form-control">
+                    </div>
+                    <div class="alert alert-danger" *ngIf="age.touched && age.invalid">
+                        <div *ngIf="age.errors && age.errors['required']">
+                            age is required.
+                        </div>
+                        <div *ngIf="age.errors && age.errors['min']">
+                            Minimun length 3 is required.
+                        </div>
+                        <div *ngIf="age.errors && age.errors['max']">
+                            Maximum length 10 is required.
+                        </div>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="email">Enter Email</label>
+                        <input type="text" #email="ngModel" name="email"  pattern="[A-Za-z0-9\._%+\-]+@[A-Za-z0-9\.\-]+\.[A-Za-z]{2,}" [(ngModel)]="formObj.email" required email placeholder="enter email" class="form-control">
+                    </div>
+                    <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                        <div *ngIf="email.errors && email.errors['required']">
+                            email is required.
+                        </div>
+                        <div *ngIf="email.errors && email.errors['pattern']">
+                            Invalid email.
+                        </div>
+                    </div>
+                    <div class="d-grid mb-2 text-center" >
+                            <button class="btn btn-primary" [class.disabled]="newForm.form.invalid">Submit</button>
+                    </div>
+                </form>
+        </div>
+    </div>
+</div>
