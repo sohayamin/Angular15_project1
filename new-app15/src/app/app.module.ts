@@ -10,7 +10,9 @@ import { PipeComponent } from './pipe/pipe.component';
 import { CustomPipe } from './pipes/custom.pipe';
 import { LayoutComponent } from './layout/layout.component';
 import { TdfComponent } from './tdf/tdf.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
+import { ChangeMeDirective } from './shared/CustomDirectives/change-me.directive';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,15 @@ import { FormsModule } from '@angular/forms';
     PipeComponent,
     CustomPipe,
     LayoutComponent,
-    TdfComponent
+    TdfComponent,
+    ReactiveFormsComponent,
+    ChangeMeDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

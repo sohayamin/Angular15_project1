@@ -1,0 +1,101 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h6 appChangeMe>Reactive Forms</h6>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="signupForm" (ngSubmit)="onHandleSubmit()">
+                        <div class="form-group mb-3">
+                            <label for="name">Name</label>
+                            <input type="text"  name="name" [class.is-invalid]="f['name'].invalid && f['name'].touched" formControlName="name" class="form-control ">
+                        </div>
+                        <div class="alert alert-danger" *ngIf="f['name'].invalid && f['name'].touched">
+                            <div *ngIf="f['name'].errors && f['name'].errors['required']">
+                                Name is required.
+                            </div>
+                            <div *ngIf="f['name'].errors && f['name'].errors['minlength']">
+                                Minimun 3 characters are required.
+                            </div>
+                            <div *ngIf="f['name'].errors && f['name'].errors['maxlength']">
+                                Maximum 10 characters are required.
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="age">Age</label>
+                            <input type="number" name="age" formControlName="age" class="form-control">
+                        </div>
+                        <div class="alert alert-danger" *ngIf="f['age'].invalid && f['age'].touched">
+                            <div *ngIf="f['age'].errors && f['age'].errors['required']">
+                                age is required.
+                            </div>
+                            <div *ngIf="f['age'].errors && f['age'].errors['min']">
+                                Minimum age 10 is required.
+                            </div>
+                            <div *ngIf="f['age'].errors && f['age'].errors['max']">
+                                Maximum age 50 is required.
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" formControlName="email" class="form-control">
+                        </div>
+                        <div class="alert alert-danger" *ngIf="f['email'].invalid && f['email'].touched">
+                            <div *ngIf="f['email'].errors && f['email'].errors['required']">
+                                email is required.
+                            </div>
+                            <div *ngIf="f['email'].errors && f['email'].errors['pattern']">
+                                Invalid email.
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="password">Password</label>
+                            <input type="text" name="password" formControlName="password" class="form-control">
+                        </div>
+                        <div class="alert alert-danger" *ngIf="f['password'].invalid && f['password'].touched">
+                            <div *ngIf="f['password'].errors && f['password'].errors['required']">
+                                password is required.
+                            </div>
+                            <div *ngIf="f['password'].errors && f['password'].errors['pattern']">
+                                Invalid password.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="">Gender:</label>
+                            <div class="form-check">
+                                <input type="radio" name="gender" value="male" formControlName="gender" class="form-check-input">
+                                <label for="Male">Male</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="gender" value="female" formControlName="gender" class="form-check-input">
+                                <label for="Male">Female</label>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="country">Country</label>
+                            <select name="country" formControlName="country" [class.is-invalid]="f['name'].invalid && f['name'].touched" class="form-control">
+                                <option value="">Select</option>
+                                <option value="US">US</option>
+                                <option value="Namibia">Namibia</option>
+                                <option value="India">India</option>
+                            </select>
+                        </div>
+                        <div class="alert alert-danger" *ngIf="f['country'].invalid && f['country'].touched">
+                            <div *ngIf="f['country'].errors && f['country'].errors['required']">
+                                country is required.
+                            </div>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" name="accept" formControlName="accept" class="form-check-input">
+                            <label for="accept">I accept the terms and conditions.</label>
+                        </div>
+                        <div class="text-center d-grid">
+                            <button type="submit" [class.disabled]="signupForm.invalid" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -4,6 +4,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { PipeComponent } from './pipe/pipe.component';
 import { TemplateReferenceComponent } from './template-reference/template-reference.component';
 import { TdfComponent } from './tdf/tdf.component';
+import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
 
 const routes: Routes = [
   // { path: 'template-reference', component: TemplateReferenceComponent},
@@ -21,6 +22,10 @@ const routes: Routes = [
         path: 'tdf', 
         component: TdfComponent
       },
+      { 
+        path: 'reactive-forms', 
+        component: ReactiveFormsComponent
+      }
     ]
    }
 ];

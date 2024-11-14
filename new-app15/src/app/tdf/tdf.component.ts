@@ -9,10 +9,14 @@ import { Student } from '../student';
 })
 export class TdfComponent {
   newForm!: NgForm;
-  formObj: Student = new Student('',0,'');
+  formObj: Student = new Student();
 
-  save(data: any) {
-      
+  constructor() {
+    this.formObj.country ='';
+  }
+
+  save() {
+      console.log('happy', this.formObj);
   }
 
 }
